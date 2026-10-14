@@ -8,7 +8,7 @@ Cómo se construye lo que dicen [`spec.md`](spec.md) y [`constitution.md`](const
 | # | Decisión | Elección (Laravel + React) | Por qué |
 |---|---|---|---|
 | D-01 | Lenguaje y runtime | PHP 8.3 | Stack del reto |
-| D-02 | Framework HTTP | Laravel 11 (solo API, sin sesiones ni vistas) | Contrato en [`api-contract.md`](api-contract.md) |
+| D-02 | Framework HTTP | Laravel 13 (solo API, sin sesiones ni vistas) | Contrato en [`api-contract.md`](api-contract.md) |
 | D-03 | Persistencia | Eloquent + migraciones de Laravel sobre PostgreSQL 16, esquema `library` | El esquema es de las migraciones (ADR-001) |
 | D-04 | Concurrencia | `UPDATE` condicional atómico + `CHECK` de rango ([ADR-002](adr/adr-002-concurrencia-optimista.md)) | Último ejemplar (RNF-2); sin columna de versión (DT-01) |
 | D-05 | Fechas | Instantes UTC (`timestamptz`); el reloj es un puerto (`Clock`) | Probar vencimientos sin esperar 14 días |
