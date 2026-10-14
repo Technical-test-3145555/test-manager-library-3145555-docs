@@ -30,6 +30,7 @@ Estados: **decidido** (se aplica y queda documentado), **adoptada** (decisión p
 | DT-13 | `days_late` no define el redondeo. Un ítem vencido hace 3 horas tendría 0 días. | Días completos transcurridos desde `due_at`, con mínimo 1 mientras esté vencido. | adoptada |
 | DT-14 | `GET /loans/overdue` choca con `GET /loans/{id}` si la ruta variable se registra primero. | La ruta fija se registra antes y `{id}` se restringe a UUID. | decidido |
 | DT-15 | El `sub` del JWT no dice qué identificador lleva. | `sub` = `user.id` (UUID). Sin datos personales dentro (§4 del contrato). | decidido |
+| DT-21 | T-21 pide 3 préstamos vencidos creados **solo por la API**, pero `loaned_at` lo fija el servidor y un préstamo vencido necesita 14 días de antigüedad. Ni el contrato ni el modelo permiten fijar la fecha. | El puerto `Clock` lee una variable de entorno opcional `CLOCK_OFFSET_DAYS` (por defecto 0, prohibida en producción). El sembrador levanta la API con `CLOCK_OFFSET_DAYS=-20`, crea esos 3 préstamos y la reinicia sin el desfase. No se agrega endpoint ni columna. | adoptada |
 
 ## 3. Nombres y convenciones (sin cambiar alcance)
 
